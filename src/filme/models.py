@@ -16,3 +16,6 @@ class Filme(models.Model):
     categoria = models.CharField(max_length=15, choices=LISTA_CATEGORIAS)
     visualizacoes = models.IntegerField(default=0)
     data_criacao = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.titulo
