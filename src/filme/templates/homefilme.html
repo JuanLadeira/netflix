@@ -7,7 +7,7 @@
 {% block content %}
 <div class="py-10">
    <h1> Essa é a nossa HomeFilmes /h1>
-    {% for filme in obj %}
+    {% for filme in object_list %}
     <p> {{ filme }}</p>
     <p> {{ filme.descricao }}</p>
     <img src="{{ filme.thumb.url }}">
