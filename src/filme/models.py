@@ -18,4 +18,12 @@ class Filme(models.Model):
     data_criacao = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.titulo
+        return f'{self.titulo} - {self.data_criacao}'
+
+class Episodio(models.Model):
+    filme = models.ForeignKey('Filme', related_name='episodios', on_delete=models.CASCADE)
+    titulo = models.CharField(max_length=100)
+    video = models.URLField()
+    
+    def __str__(self):
+            return f'{self.filme.titulo} - {self.titulo}'
