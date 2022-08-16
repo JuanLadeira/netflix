@@ -2,9 +2,9 @@ from distutils.command.upload import upload
 from django.db import models
 
 LISTA_CATEGORIAS = (
-    ("ANALISES", 'Análises'),
-    ("PROGRAMACAO", "Programação"),
-    ("APRESENTACAO", "Apresentação"),
+    ("ACAO", 'Ação'),
+    ("DRAMA", "Drama"),
+    ("FICCAO", "Ficção"),
     ("OUTROS", "Outros")
     )
 
