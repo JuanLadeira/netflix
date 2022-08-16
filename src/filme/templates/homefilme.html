@@ -3,7 +3,7 @@
 
 {% block head %}
 <style>
-    $itemGrow: 1.2;
+    $itemGrow: 1.8;
     $duration: 250ms;
     
     html {
@@ -20,7 +20,11 @@
       color: red;
       text-align: center;
     }
-    
+    .wrapper section .item:hover {
+    margin: 0 40px;
+    transform: scale(1.2);
+    }
+
     .wrapper {
       display: grid;
       grid-template-columns: repeat(3,100%);
@@ -28,19 +32,19 @@
       scroll-behavior: smooth;
     
       section {
-        width: 100%;
+        width: 120%;
         position: relative;
         display: grid;
         grid-template-columns: repeat(5, auto);
         margin: 20px 0;
         
         .item {
-          padding: 0 2px;
+          padding: 0 3px;
           transition: $duration all;
           
           &:hover { 
-            margin: 0 40px;
-            transform: scale(1.2);
+            margin: 0 60  x;
+            transform: scale(1.6);
           }
           
         }
@@ -76,6 +80,8 @@
         display:none;
       }
     }
+  
+
     </style>
 
 {% endblock %}
