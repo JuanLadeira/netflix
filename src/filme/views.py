@@ -3,17 +3,18 @@ from multiprocessing import context
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 from .models import Filme
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
 class HomePage(TemplateView):
     template_name = 'homepage.html'
 
-class HomeFilme(ListView):
+class HomeFilme(LoginRequiredMixin, ListView):
     template_name = 'homefilme.html'
     model = Filme
 
-class DetalhesFilme(DetailView):
+class DetalhesFilme(LoginRequiredMixin, DetailView):
     template_name = 'detalhesfilme.html'
     model = Filme
 
@@ -30,7 +31,7 @@ class DetalhesFilme(DetailView):
         context['filmes_relacionados'] = filmes_relacionados
         return context
 
-class PesquisaFilme(ListView):
+class PesquisaFilme(LoginRequiredMixin, ListView):
     template_name ='pesquisa.html'
     model = Filme
 
