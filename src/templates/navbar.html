@@ -1,17 +1,28 @@
 {% load static %}
 
 <nav class="w-full flex justify-between items-center py-2 px-4 fixed z-50">
+    
     <div class="w-6/12">
         <a href="/"> <img class="w-2/12 shadow-2xl opacity-75 scale-75 rounded-full" src="{% static 'images/netflix.png' %}" alt="My image"> </a>
     </div>
+   
     <div class="w-6/12 flex flex-nowrap justify-end">
+        {% if user.is_authenticated %}
         <div class="mr-2">
             <form method="get" action="{% url 'filmes:pesquisafilme' %}">
              <input type="text" class="py-1 px-2 rounded-md text-black" name="query" value="{{ request.GET.query }}" placeholder="Pesquisar...">
              <input type="submit" value="">
             </form>
         </div>
-
+       
+        <div class="mr-2">
+            <a href="">
+                <button class="bg-red-600 text-white py-1 px-3 rounded-md">
+                    Logout
+                </button>
+            </a>
+        </div>
+        {% else %}
         <div class="mr-2">
             <a href="">
                 <button class="bg-red-600 text-white py-1 px-3 rounded-md">
@@ -19,6 +30,8 @@
                 </button>
             </a>
         </div>
+        {% endif %}
+        {% if user.is_authenticated %}
         <div class="mr-2">
             <a href="">
                 <button class="bg-red-600 text-white py-1 px-3 rounded-md">
@@ -26,5 +39,7 @@
                 </button>
             </a>
         </div>
+        {% endif %}
     </div>
+   
 </nav>

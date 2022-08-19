@@ -1,14 +1,22 @@
-from gc import get_objects
+
 from multiprocessing import context
-from django.shortcuts import render
+from tkinter.messagebox import RETRY
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, DetailView
 from .models import Filme
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 # Create your views here.
 
 class HomePage(TemplateView):
     template_name = 'homepage.html'
+
+    def get(self, request, *args, **kwargs):
+        usuario = request.user
+        if usuario.is_authenticated:
+            return redirect("filmes:homefilme")
+        return super().get(request, *args, **kwargs)
 
 class HomeFilme(LoginRequiredMixin, ListView):
     template_name = 'homefilme.html'
