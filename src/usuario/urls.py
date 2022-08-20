@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import templateview
+from .views import PaginaPerfil
 
 app_name = 'usuarios'
 urlpatterns = [
-    path('usuario', templateview , name="usuario" )
+    path('perfil', PaginaPerfil.as_view() , name="perfil" )
 ]
