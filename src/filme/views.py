@@ -37,8 +37,9 @@ class DetalhesFilme(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DetalhesFilme,self).get_context_data(**kwargs)
-        filmes_relacionados =  self.model.objects.filter(categoria=self.get_object().categoria)[0:5] #filtrando todos os objetos que pertencem a mesma categoria
-        context['filmes_relacionados'] = filmes_relacionados
+        if filmes_relacionados:
+            filmes_relacionados =  self.model.objects.filter(categoria=self.get_object().categoria)[0:5] #filtrando todos os objetos que pertencem a mesma categoria
+            context['filmes_relacionados'] = filmes_relacionados
         return context
 
 class PesquisaFilme(LoginRequiredMixin, ListView):

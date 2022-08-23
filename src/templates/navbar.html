@@ -16,7 +16,7 @@
         </div>
        
         <div class="mr-2">
-            <a href=" {% url 'usuarios:usuariologout' %} ">
+            <a href=" {% url 'usuarios:logout' %} ">
                 <button class="bg-red-600 text-white py-1 px-3 rounded-md">
                     Logout
                 </button>
@@ -24,7 +24,7 @@
         </div>
         {% else %}
         <div class="mr-2">
-            <a href="{% url 'usuarios:usuariologin' %}">
+            <a href="{% url 'usuarios:login' %}">
                 <button class="bg-red-600 text-white py-1 px-3 rounded-md">
                     Login
                 </button>

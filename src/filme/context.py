@@ -7,11 +7,12 @@ def lista_filmes_recentes(request):
     Lista de Filmes recentes "-data_criacao" ordem decrescente, do mais novo ao mais antigo.
     Destaque será o filme mais novo adicionado ao site.
     """
-    lista_filmes = Filme.objects.all().order_by('-data_criacao')[0:8] 
+    lista_filmes = Filme.objects.all().order_by('-data_criacao')[0:8]
     if lista_filmes:
         destaque = Filme.objects.order_by('-data_criacao')[0]
     else:
         destaque = None
+        lista_filmes = None
     return {
         "filmes_recentes": lista_filmes,
         "filmes_destaque": destaque
