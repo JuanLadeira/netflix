@@ -33,7 +33,7 @@
         {% endif %}
         {% if user.is_authenticated %}
         <div class="mr-2">
-            <a href="{% url 'usuarios:editarperfil' %}">
+            <a href="{% url 'usuarios:editarperfil' user.id %}">
                 <button class="bg-red-600 text-white py-1 px-3 rounded-md">
                     editar perfil
                 </button>

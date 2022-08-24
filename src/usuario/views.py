@@ -1,15 +1,21 @@
 from re import T
 from django.shortcuts import render, reverse
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CriarContaUsuario
-
+from .models import Usuario
 
 
 # Create your views here.
 
-class PaginaPerfil(LoginRequiredMixin, TemplateView):
+class PaginaPerfil(LoginRequiredMixin, UpdateView):
     template_name = "perfilusuario.html"
+    model = Usuario
+    fields = ['first_name','last_name','email','password', ]
+
+    def get_success_url(self):
+        return reverse('filmes:homefilme')   
+
 
 class CriarConta(FormView):
     template_name = "criarconta.html"
@@ -21,3 +27,6 @@ class CriarConta(FormView):
 
     def get_success_url(self):
         return reverse('usuarios:login')
+
+
+    
