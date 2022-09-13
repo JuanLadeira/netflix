@@ -15,6 +15,7 @@ class HomePage(TemplateView):
         if usuario.is_authenticated:
             return redirect("filmes:homefilme")
         return super().get(request, *args, **kwargs)
+    
 
 class HomeFilme(LoginRequiredMixin, ListView):
     template_name = 'homefilme.html'
