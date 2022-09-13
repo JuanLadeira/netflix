@@ -1,6 +1,4 @@
 
-from multiprocessing import context
-from tkinter.messagebox import RETRY
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, DetailView
 from .models import Filme

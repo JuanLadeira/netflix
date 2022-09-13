@@ -1,6 +1,5 @@
-from re import T
 from django.shortcuts import render, reverse
-from django.views.generic import TemplateView, FormView, UpdateView
+from django.views.generic import  FormView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CriarContaUsuario
 from .models import Usuario
