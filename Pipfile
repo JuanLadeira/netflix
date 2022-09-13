@@ -8,6 +8,9 @@ django = "*"
 pillow = "*"
 django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
+psycopg2 = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 

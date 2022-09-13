@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bx3y^85qy^qk%7(d_!8*8%3(opm!=on!jvknu1kaz(mt$8dvj$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hashflix-clone.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'netflix.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd5278gngjqnqh8',
+        'USER': 'bdpisfuhndkbwl',
+        'PASSWORD': '5b6b4124d36e40b145f4046ec7c4ef2dad5db108e19a8bea53085cf3b1a6f7c9',
+        'HOST': 'ec2-34-231-42-166.compute-1.amazonaws.com',
+        'PORT': 5432
     }
 }
 
